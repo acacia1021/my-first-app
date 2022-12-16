@@ -11,5 +11,4 @@ import { NgModule } from '@angular/core';
 
 
 export class AppComponent {
-  name = 'Acacia';
 }
