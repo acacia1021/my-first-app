@@ -15,6 +15,9 @@ export class ServersComponent implements OnInit {
   serverCreationStatus = 'No server was created!'
   serverName = 'Testserver';
 
+  userName = ''
+  allowUserName = false;
+
   constructor() {
     //() means function - => does - {} this
     //, 2000ms = 2 seconds
@@ -24,8 +27,7 @@ export class ServersComponent implements OnInit {
     }, 2000);
   }
 
-  ngOnInit(): void {
-    throw new Error('Method not implemented.');
+  ngOnInit() {
   }
 
   onCreateServer() {
@@ -36,5 +38,18 @@ export class ServersComponent implements OnInit {
   // event of type any is passed in
   onUpdateServerName(event: any) {
     this.serverName = event.target.value;
+  }
+
+  allowSaveUserName() {
+    if (this.userName.length > 0) {
+      this.allowUserName = true;
+    }
+    else {
+      this.allowUserName = false;
+    }
+  }
+
+  onCreateUserName(){
+    this.userName = '';
   }
 }

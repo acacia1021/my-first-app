@@ -12,13 +12,10 @@ class="form-control"
 <!-- 2-way data binding combines property and event binding
 [()] property binding w/ event binding
 [(ngModel)] is a directive  -->
-<input type="text"
-class="form-control"
-[(ngModel)]="serverName">
+<input type="text" class="form-control" style="width: 50%;" [(ngModel)]="serverName">
+<!-- This is called string interpolation -->
 <!-- <p>{{serverName}}</p> -->
-<button class="btn btn-primary"
-[disabled] = "!allowNewServer"
-(click)="onCreateServer()">Add Server</button>
+<button class="btn btn-primary" [disabled]="!allowNewServer" (click)="onCreateServer()">Add Server</button>
 <!-- This shows the status of allowNewServer (true vs. false) -->
 <!-- This is called string interpolation -->
 <!-- <p>{{allowNewServer}}</p> -->
@@ -29,4 +26,15 @@ class="form-control"
 <p>{{serverCreationStatus}}</p>
 
 <app-server></app-server>
-<app-server></app-server>
+
+<br>
+
+<label>Username</label>
+<!-- Form-control class allows for the input square to be styled neatly -->
+<!-- .container or whatever div class you want is the shortcut to use -->
+<input type="text" class="form-control" style="width: 50%;" [(ngModel)]="userName">
+<p>{{userName}}</p>
+<button class="btn btn-primary" [disabled]="userName === '' " (click)="onCreateUserName()" >Add Username</button>
+
+<!-- In solution video, you can also do 
+<button class="btn btn-primary" [disabled]="userName === '' " (click)="userName = '' " >Add Username</button> -->
