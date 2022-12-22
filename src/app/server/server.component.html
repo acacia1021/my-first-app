@@ -1,8 +1,11 @@
 <!-- {{'Server'}} is hardcoded here - {{serverId}} is infering to server.component.ts -->
-<!-- ngStyle is a built in Directive, we will property bind it with [] to property ngStyle -->
+<!-- ngStyle is a built in Directive & a dynamic way of styling, we will property bind it with [] to property ngStyle -->
 <!-- <p [ngStyle] = "{'background-color': 'red'}">{{'Server'}} with ID {{serverId}} is {{getServerStatus()}} </p> -->
 
 <!-- Another way of styling format:
 <p [ngStyle] = "{backgroundColor: 'red'}">{{'Server'}} with ID {{serverId}} is {{getServerStatus()}} </p> -->
 
-<p [ngStyle] = "{backgroundColor: getColor()}">{{'Server'}} with ID {{serverId}} is {{getServerStatus()}} </p>
+<!-- ngClass allows for us to dynamically add or remove CSS classes, also only works when using property binding [], "{JavaScript object}" - in this case, the online class
+"{JavaScriptClass: 'online'}" - : means only - 'online' is the condition -->
+<p [ngStyle] = "{backgroundColor: getColor()}"
+[ngClass]="{online: serverStatus === 'online'}">{{'Server'}} with ID {{serverId}} is {{getServerStatus()}} </p>
