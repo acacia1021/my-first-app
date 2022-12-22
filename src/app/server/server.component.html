@@ -1,2 +1,8 @@
 <!-- {{'Server'}} is hardcoded here - {{serverId}} is infering to server.component.ts -->
-<p>{{'Server'}} with ID {{serverId}} is {{getServerStatus()}} </p>
+<!-- ngStyle is a built in Directive, we will property bind it with [] to property ngStyle -->
+<!-- <p [ngStyle] = "{'background-color': 'red'}">{{'Server'}} with ID {{serverId}} is {{getServerStatus()}} </p> -->
+
+<!-- Another way of styling format:
+<p [ngStyle] = "{backgroundColor: 'red'}">{{'Server'}} with ID {{serverId}} is {{getServerStatus()}} </p> -->
+
+<p [ngStyle] = "{backgroundColor: getColor()}">{{'Server'}} with ID {{serverId}} is {{getServerStatus()}} </p>
