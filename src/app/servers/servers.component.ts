@@ -13,6 +13,7 @@ export class ServersComponent implements OnInit {
 
   allowNewServer = false;
   serverCreationStatus = 'No server was created!'
+  serverName = '';
 
   constructor() {
     //() means function - => does - {} this
@@ -30,5 +31,10 @@ export class ServersComponent implements OnInit {
   onCreateServer() {
     this.serverCreationStatus = 'Server was created!';
 
+  }
+
+  // event of type any is passed in
+  onUpdateServerName(event: any) {
+    this.serverName = event.target.value;
   }
 }

@@ -1,6 +1,14 @@
 <!-- [] means a dynamic property binding & disable the html attribute  -->
 <!-- ! reverts what occurs/opposite of what logic is in .ts  -->
 <!-- () indicates event binding, calls the method created in .ts -->
+
+<label>Server Name</label>
+<!-- $event is a reserved variable name you can use in the template when using event binding
+$event will be the data emitted with the event, here, it is "onCreateServer" -->
+<input type="text"
+class="form-control"
+(input)="onUpdateServerName($event)">
+<p>{{serverName}}</p>
 <button class="btn btn-primary"
 [disabled] = "!allowNewServer"
 (click)="onCreateServer()">Add Server</button>
