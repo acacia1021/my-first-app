@@ -26,7 +26,10 @@ class="form-control"
 <!-- This is the property binding version of the string interpolation -->
 <!-- <p [innerText]="allowNewServer"></p> -->
 
-<p>{{serverCreationStatus}}</p>
+<!-- <p>{{serverCreationStatus}}</p> -->
+
+<!-- This is an example of a Structural Directive  -->
+<p *ngIf="serverCreated">Server was created, server name is {{serverName}}</p>
 
 <app-server></app-server>
 <app-server></app-server>
