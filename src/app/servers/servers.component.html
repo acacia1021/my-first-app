@@ -1,13 +1,17 @@
 <!-- [] means a dynamic property binding & disable the html attribute  -->
 <!-- ! reverts what occurs/opposite of what logic is in .ts  -->
+<!-- () indicates event binding, calls the method created in .ts -->
 <button class="btn btn-primary"
-[disabled] = "!allowNewServer">Add Server</button>
+[disabled] = "!allowNewServer"
+(click)="onCreateServer()">Add Server</button>
 <!-- This shows the status of allowNewServer (true vs. false) -->
 <!-- This is called string interpolation -->
 <!-- <p>{{allowNewServer}}</p> -->
 
 <!-- This is the property binding version of the string interpolation -->
-<p [innerText]="allowNewServer"></p>
+<!-- <p [innerText]="allowNewServer"></p> -->
+
+<p>{{serverCreationStatus}}</p>
 
 <app-server></app-server>
 <app-server></app-server>
