@@ -42,3 +42,28 @@ class="form-control"
 <!-- <app-server></app-server> -->
 <!-- Instead of using app-server X2, using ngFor, temporary variable defined with 'let' -->
 <app-server *ngFor="let server of servers"></app-server>
+
+<br>
+<!-- Simpler to just call the inverse of the buttonPressed variable instead of this below
+<button class="btn btn-primary" (click)="onButtonPressed()">Display Details</button> -->
+<!-- <p *ngIf="buttonPressed; else noPassword">Secret password = Tuna</p>
+<ng-template #noPassword>
+    <p></p>
+</ng-template> -->
+
+<!-- Simpler Method, but needs to be able to track the # of times pressed -->
+<!-- <button class="btn btn-primary" (click)="buttonPressed = !buttonPressed">Display Details</button> -->
+
+<button class="btn btn-primary" (click)="onButtonPressed()">Display Details</button>
+<p *ngIf="buttonPressed">Secret password = Tuna</p>
+
+<!-- Our array name is listOfButtonClicks, so let varName of arrayList -->
+<!-- It is better to show the individual buttonClicks than the current arrayList each time -->
+<!-- <p *ngFor="let buttonClick of listOfButtonClicks">{{listOfButtonClicks}}</p> -->
+
+<p *ngFor="let buttonClick of listOfButtonClicks"
+    [ngStyle]="{backgroundColor: buttonClick >= 5 ? 'blue' : 'transparent'}"
+    [ngClass]="{'white-text': buttonClick >= 5}">
+    {{buttonClick}}</p>
+
+    <!-- It is hard to see the text like this, so will add CSS elements in .css -->

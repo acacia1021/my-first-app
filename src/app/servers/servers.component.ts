@@ -16,6 +16,8 @@ export class ServersComponent implements OnInit {
   serverName = 'Testserver';
   serverCreated = false;
   servers = ['TestServer', 'TestServer2'];
+  buttonPressed = false;
+  listOfButtonClicks = [];
 
   constructor() {
     //() means function - => does - {} this
@@ -26,8 +28,7 @@ export class ServersComponent implements OnInit {
     }, 2000);
   }
 
-  ngOnInit(): void {
-    throw new Error('Method not implemented.');
+  ngOnInit() {
   }
 
   onCreateServer() {
@@ -41,4 +42,20 @@ export class ServersComponent implements OnInit {
   onUpdateServerName(event: any) {
     this.serverName = event.target.value;
   }
+
+  onButtonPressed() {
+    // Cleaner to simply call the opposite in the html call, or use the next section of logic
+    // if (this.buttonPressed == false) {
+    //   this.buttonPressed = true;
+    // }
+    // else if (this.buttonPressed == true) {
+    //   this.buttonPressed = false;
+    // }
+
+    this.buttonPressed = !this.buttonPressed;
+
+    // The correct way of logging the buttonPresses
+    this.listOfButtonClicks.push(this.listOfButtonClicks.length + 1);
+  }
+
 }
