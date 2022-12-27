@@ -55,7 +55,13 @@ export class ServersComponent implements OnInit {
     this.buttonPressed = !this.buttonPressed;
 
     // The correct way of logging the buttonPresses
-    this.listOfButtonClicks.push(this.listOfButtonClicks.length + 1);
+    // this.listOfButtonClicks.push(this.listOfButtonClicks.length + 1);
+
+    //How to log the timestamp instead of the increment of button presses
+    //A string is always considered greater than 5, so our blue background at the fifth increment is broken - 
+    //Fixed in the html
+    this.listOfButtonClicks.push(new Date());
+
   }
 
 }

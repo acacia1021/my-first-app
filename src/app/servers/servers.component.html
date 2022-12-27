@@ -61,9 +61,16 @@ class="form-control"
 <!-- It is better to show the individual buttonClicks than the current arrayList each time -->
 <!-- <p *ngFor="let buttonClick of listOfButtonClicks">{{listOfButtonClicks}}</p> -->
 
-<p *ngFor="let buttonClick of listOfButtonClicks"
+<!-- <p *ngFor="let buttonClick of listOfButtonClicks"
     [ngStyle]="{backgroundColor: buttonClick >= 5 ? 'blue' : 'transparent'}"
     [ngClass]="{'white-text': buttonClick >= 5}">
+    {{buttonClick}}</p> -->
+
+    <!-- This version allows for the timestamps with background blue to work properly
+    "index" is a reserved expression that gives us access to the index of the current iteration -->
+    <p *ngFor="let buttonClick of listOfButtonClicks; let i = index"
+    [ngStyle]="{backgroundColor: i >= 4 ? 'blue' : 'transparent'}"
+    [ngClass]="{'white-text': i >= 4}">
     {{buttonClick}}</p>
 
     <!-- It is hard to see the text like this, so will add CSS elements in .css -->
